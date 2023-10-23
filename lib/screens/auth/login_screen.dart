@@ -37,6 +37,7 @@ class _LoginScreenState extends State<LoginScreen> {
               height: 30,
             ),
             AayaTextFromField(
+              maxLength: 10,
                 inputType: TextInputType.phone,
                 size: size,
                 hintText: "97XXXXXX88",
@@ -56,7 +57,13 @@ class _LoginScreenState extends State<LoginScreen> {
             const SizedBox(
               height: 20,
             ),
-            AayaButtonWidget(size: size, isValidated: isValidated),
+            AayaButtonWidget(
+              size: size,
+              isValidated: isValidated,
+              ontap: () {
+                print(phoneNumberController.text);
+              },
+            ),
           ],
         ),
       ),

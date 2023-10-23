@@ -6,6 +6,7 @@ class AayaTextFromField extends StatelessWidget {
   final String? prefix;
   final TextInputType inputType;
   final Function(String)? onChanged;
+  final int? maxLength;
 
   const AayaTextFromField({
     super.key,
@@ -15,6 +16,7 @@ class AayaTextFromField extends StatelessWidget {
     this.prefix,
     this.onChanged,
     required this.inputType,
+    this.maxLength,
   });
 
   final Size size;
