@@ -40,6 +40,7 @@ class _LoginScreenState extends State<LoginScreen> {
               height: 30,
             ),
             AayaTextFromField(
+                autoFocous: true,
                 focusNode: focusNode,
                 maxLength: 10,
                 inputType: TextInputType.phone,
@@ -63,6 +64,7 @@ class _LoginScreenState extends State<LoginScreen> {
               height: 20,
             ),
             AayaButtonWidget(
+              buttonText: "Continue",
               size: size,
               isValidated: isValidated,
               isLoading: isLoading,

@@ -8,12 +8,14 @@ class AayaButtonWidget extends StatelessWidget {
     required this.isValidated,
     required this.ontap,
     required this.isLoading,
+    required this.buttonText,
   });
 
   final Size size;
   final bool isValidated;
   final Function ontap;
   final bool isLoading;
+  final String buttonText;
 
   @override
   Widget build(BuildContext context) {
@@ -43,7 +45,7 @@ class AayaButtonWidget extends StatelessWidget {
                     )
                   : Center(
                       child: Text(
-                        "Continue",
+                        buttonText,
                         style: TextStyle(
                           color: isValidated
                               ? Theme.of(context).unselectedWidgetColor

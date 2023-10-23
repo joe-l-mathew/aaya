@@ -8,6 +8,7 @@ class AayaTextFromField extends StatelessWidget {
   final Function(String)? onChanged;
   final int? maxLength;
   final FocusNode? focusNode;
+  final bool autoFocous;
 
   const AayaTextFromField({
     super.key,
@@ -17,7 +18,9 @@ class AayaTextFromField extends StatelessWidget {
     this.prefix,
     this.onChanged,
     required this.inputType,
-    this.maxLength, this.focusNode,
+    this.maxLength,
+    this.focusNode,
+    required this.autoFocous,
   });
 
   final Size size;
@@ -51,6 +54,7 @@ class AayaTextFromField extends StatelessWidget {
                     : const SizedBox(),
                 Expanded(
                   child: TextField(
+                    autofocus: autoFocous,
                     focusNode: focusNode,
                     keyboardType: inputType,
                     onChanged: onChanged,
