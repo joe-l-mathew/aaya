@@ -8,5 +8,6 @@ class LightColors {
   static const teritioryColor = Color.fromRGBO(155, 178, 196, 1);
   static const bottomNavColor = Color.fromRGBO(242, 244, 245, 1);
   static const dividerColor = Color.fromRGBO(206, 206, 206, 1.0);
+  static const unselectedColor = Color.fromRGBO(217, 217, 217, 1);
   // Define other colors for the light theme.
 }

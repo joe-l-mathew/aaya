@@ -14,7 +14,9 @@ class ThemeController extends GetxController {
       disabledColor: LightColors.bottomContainerColor,
       secondaryHeaderColor: LightColors.secondaryColor,
       highlightColor: LightColors.teritioryColor,
-      cardColor: LightColors.bottomNavColor
+      cardColor: LightColors.bottomNavColor,
+      unselectedWidgetColor: LightColors.unselectedColor
+      
       // bottomAppBarColor: LightColors.bottomNavColor
       ,
       dividerColor: LightColors.dividerColor
