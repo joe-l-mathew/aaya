@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:loading_animation_widget/loading_animation_widget.dart';
 
 class AayaButtonWidget extends StatelessWidget {
   const AayaButtonWidget({
@@ -6,11 +7,13 @@ class AayaButtonWidget extends StatelessWidget {
     required this.size,
     required this.isValidated,
     required this.ontap,
+    required this.isLoading,
   });
 
   final Size size;
   final bool isValidated;
   final Function ontap;
+  final bool isLoading;
 
   @override
   Widget build(BuildContext context) {
@@ -22,25 +25,35 @@ class AayaButtonWidget extends StatelessWidget {
           }
         },
         child: Container(
-          width: size.width * 0.8,
-          height: 60,
-          decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10),
-              color: !isValidated
-                  ? Theme.of(context).unselectedWidgetColor
-                  : Colors.black),
-          child: Center(
-              child: Text(
-            "Continue",
-            style: TextStyle(
-              color: isValidated
-                  ? Theme.of(context).unselectedWidgetColor
-                  : Colors.black,
-              fontWeight: FontWeight.w700,
-              fontSize: 16,
-            ),
-          )),
-        ),
+            width: size.width * 0.8,
+            height: 60,
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10),
+                color: !isValidated
+                    ? Theme.of(context).unselectedWidgetColor
+                    : Colors.black),
+            child: AnimatedSwitcher(
+              duration: Duration(seconds: 1),
+              child: isLoading
+                  ? Center(
+                      child: LoadingAnimationWidget.inkDrop(
+                        color: Theme.of(context).scaffoldBackgroundColor,
+                        size: 20,
+                      ),
+                    )
+                  : Center(
+                      child: Text(
+                        "Continue",
+                        style: TextStyle(
+                          color: isValidated
+                              ? Theme.of(context).unselectedWidgetColor
+                              : Colors.black,
+                          fontWeight: FontWeight.w700,
+                          fontSize: 16,
+                        ),
+                      ),
+                    ),
+            )),
       ),
     );
   }

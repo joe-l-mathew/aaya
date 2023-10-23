@@ -1,3 +1,5 @@
+import 'package:aaya/repository/api_services/auth_services.dart';
+import 'package:aaya/screens/auth/otp_screen.dart';
 import 'package:aaya/screens/auth/widgets/circle_widget.dart';
 import 'package:aaya/screens/widgets/aaya_button_widget.dart';
 import 'package:aaya/screens/widgets/aaya_text_field.dart';
@@ -12,8 +14,9 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreenState extends State<LoginScreen> {
   TextEditingController phoneNumberController = TextEditingController();
+  FocusNode focusNode = FocusNode();
   bool isValidated = false;
-  @override
+  bool isLoading = false;
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -37,7 +40,8 @@ class _LoginScreenState extends State<LoginScreen> {
               height: 30,
             ),
             AayaTextFromField(
-              maxLength: 10,
+                focusNode: focusNode,
+                maxLength: 10,
                 inputType: TextInputType.phone,
                 size: size,
                 hintText: "97XXXXXX88",
@@ -48,6 +52,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   }
                   if (val.length == 10) {
                     isValidated = true;
+                    focusNode.unfocus();
                   } else {
                     isValidated = false;
                   }
@@ -60,8 +65,25 @@ class _LoginScreenState extends State<LoginScreen> {
             AayaButtonWidget(
               size: size,
               isValidated: isValidated,
-              ontap: () {
-                print(phoneNumberController.text);
+              isLoading: isLoading,
+              ontap: () async {
+                setState(() {
+                  isLoading = true;
+                });
+                await AuthServices.sentOtp(
+                    phoneNumber: phoneNumberController.text);
+                // ignore: use_build_context_synchronously
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (_) => OtpScreen(
+                      phoneNumber: phoneNumberController.text,
+                    ),
+                  ),
+                );
+                setState(() {
+                  isLoading = false;
+                });
               },
             ),
           ],
