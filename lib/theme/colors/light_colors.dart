@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 class LightColors {
-  static const primaryColor = Color(0xFFFE7332);
-  static const secondaryColor = Color(0xFF143A5F);
+  static const primaryColor = Color.fromRGBO(0, 59, 109, 1);
+  static const secondaryColor = Color.fromRGBO(186, 204, 222, 1);
   static const scaffoldColor = Colors.white;
   static const bottomContainerColor = Color(0xFFF2F7FC);
   static const teritioryColor = Color.fromRGBO(155, 178, 196, 1);
