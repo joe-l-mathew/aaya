@@ -35,7 +35,7 @@ class AayaButtonWidget extends StatelessWidget {
                     ? Theme.of(context).unselectedWidgetColor
                     : Colors.black),
             child: AnimatedSwitcher(
-              duration: Duration(seconds: 1),
+              duration: const Duration(seconds: 1),
               child: isLoading
                   ? Center(
                       child: LoadingAnimationWidget.inkDrop(
