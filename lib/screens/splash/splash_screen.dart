@@ -1,5 +1,4 @@
 import 'package:aaya/screens/auth/login_screen.dart';
-import 'package:aaya/screens/home/home_screen.dart';
 import 'package:aaya/services/auth_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -21,9 +20,7 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 
   routeLogin() async {
-    if (await isLoggedIn()) {
-      Get.offAll(() => const HomeScreen());
-    } else {
+    if (!await isLoggedIn()) {
       Get.offAll(() => const LoginScreen());
     }
   }

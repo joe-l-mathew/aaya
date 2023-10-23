@@ -3,10 +3,10 @@ import 'package:aaya/main.dart';
 import 'package:aaya/models/api_models/user_data.dart';
 import 'package:aaya/repository/routes/api_routes.dart';
 import 'package:aaya/screens/home/home_screen.dart';
+import 'package:aaya/screens/onboarding_screen.dart';
 import 'package:aaya/services/token_services.dart';
 import 'package:dio/dio.dart';
 import 'package:get/get.dart' hide Response;
-import 'package:logger/logger.dart';
 
 class AuthServices {
   static Future<bool> sentOtp({required String phoneNumber}) async {
@@ -30,6 +30,7 @@ class AuthServices {
       TokenServices.saveToken(userData.token);
       if (userData.name.isEmpty) {
         //get to add personal details
+        Get.offAll(() => const UserOnboardingScreen());
       } else {
         //get to home screen
         Get.offAll(() => const HomeScreen());
@@ -52,6 +53,7 @@ class AuthServices {
       TokenServices.saveToken(userData.token);
       if (userData.name.isEmpty) {
         //get to add personal details
+        Get.offAll(() => const UserOnboardingScreen());
       } else {
         //get to home screen
         Get.offAll(() => const HomeScreen());
