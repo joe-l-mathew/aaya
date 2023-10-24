@@ -3,7 +3,7 @@ import 'package:aaya/main.dart';
 import 'package:aaya/models/api_models/user_data.dart';
 import 'package:aaya/repository/routes/api_routes.dart';
 import 'package:aaya/screens/home/home_screen.dart';
-import 'package:aaya/screens/onboarding_screen.dart';
+import 'package:aaya/screens/onboarding/onboarding_screen.dart';
 import 'package:aaya/services/token_services.dart';
 import 'package:dio/dio.dart';
 import 'package:get/get.dart' hide Response;

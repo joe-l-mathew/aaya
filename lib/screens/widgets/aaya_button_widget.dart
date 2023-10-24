@@ -19,43 +19,46 @@ class AayaButtonWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: GestureDetector(
-        onTap: () {
-          if (isValidated) {
-            ontap();
-          }
-        },
-        child: Container(
-            width: size.width * 0.8,
-            height: 60,
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10),
-                color: !isValidated
-                    ? Theme.of(context).unselectedWidgetColor
-                    : Colors.black),
-            child: AnimatedSwitcher(
-              duration: const Duration(seconds: 1),
-              child: isLoading
-                  ? Center(
-                      child: LoadingAnimationWidget.inkDrop(
-                        color: Theme.of(context).scaffoldBackgroundColor,
-                        size: 20,
-                      ),
-                    )
-                  : Center(
-                      child: Text(
-                        buttonText,
-                        style: TextStyle(
-                          color: isValidated
-                              ? Theme.of(context).unselectedWidgetColor
-                              : Colors.black,
-                          fontWeight: FontWeight.w700,
-                          fontSize: 16,
+    return SizedBox(
+      height: 60,
+      child: Center(
+        child: GestureDetector(
+          onTap: () {
+            if (isValidated) {
+              ontap();
+            }
+          },
+          child: Container(
+              width: size.width * 0.8,
+              height: 60,
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  color: !isValidated
+                      ? Theme.of(context).unselectedWidgetColor
+                      : Colors.black),
+              child: AnimatedSwitcher(
+                duration: const Duration(seconds: 1),
+                child: isLoading
+                    ? Center(
+                        child: LoadingAnimationWidget.inkDrop(
+                          color: Theme.of(context).scaffoldBackgroundColor,
+                          size: 20,
+                        ),
+                      )
+                    : Center(
+                        child: Text(
+                          buttonText,
+                          style: TextStyle(
+                            color: isValidated
+                                ? Theme.of(context).unselectedWidgetColor
+                                : const Color.fromARGB(111, 0, 0, 0),
+                            fontWeight: FontWeight.w700,
+                            fontSize: 16,
+                          ),
                         ),
                       ),
-                    ),
-            )),
+              )),
+        ),
       ),
     );
   }
