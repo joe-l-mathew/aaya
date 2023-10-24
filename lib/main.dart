@@ -3,6 +3,7 @@ import 'package:aaya/screens/splash/splash_screen.dart';
 import 'package:aaya/services/dio_service.dart';
 import 'package:aaya/theme/theme_controller.dart';
 import 'package:dio/dio.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hive_flutter/hive_flutter.dart';
@@ -12,9 +13,12 @@ Dio? dioInstance;
 void main() async {
   dioInstance = createDioWithLoggerInterceptor();
   WidgetsFlutterBinding.ensureInitialized();
+  // await Firebase.initializeApp();
   await Hive.initFlutter();
   await Hive.openBox('tokenBox');
-  runApp(const MyApp());
+  runApp(
+    const MyApp(),
+  );
 }
 
 class MyApp extends StatelessWidget {

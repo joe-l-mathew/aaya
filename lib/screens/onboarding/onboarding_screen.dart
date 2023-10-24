@@ -1,6 +1,8 @@
 import 'dart:io';
 
 import 'package:aaya/functions/get_location.dart';
+import 'package:aaya/repository/api_services/auth_services.dart';
+import 'package:aaya/repository/api_services/user_service.dart';
 import 'package:aaya/screens/widgets/aaya_button_widget.dart';
 import 'package:aaya/screens/widgets/aaya_text_field.dart';
 import 'package:flutter/material.dart';
@@ -106,7 +108,14 @@ class _UserOnboardingScreenState extends State<UserOnboardingScreen> {
               ontap: () async {
                 isLoading = true;
                 setState(() {});
-                await Future.delayed(const Duration(seconds: 2));
+                bool isUpdateSuccess = await UserService.updateUser(
+                    name: nameController.text,
+                    position: position!,
+                    profilePath:
+                        profileImage == null ? null : profileImage!.path);
+                if (isUpdateSuccess) {
+                  await AuthServices.getUser();
+                }
                 isLoading = false;
                 setState(() {});
               },
