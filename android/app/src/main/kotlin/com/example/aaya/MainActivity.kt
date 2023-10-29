@@ -1,4 +1,4 @@
-package com.example.aaya
+package com.aaya.aayauser
 
 import io.flutter.embedding.android.FlutterActivity
 

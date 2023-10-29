@@ -1,0 +1,67 @@
+{
+  "project_info": {
+    "project_number": "711004115285",
+    "project_id": "aaya-user",
+    "storage_bucket": "aaya-user.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:711004115285:android:11979d0dcf2cd63cbadfdc",
+        "android_client_info": {
+          "package_name": "com.aaya.aayauser"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCJpwDmj_5kTB8MhtkCv_rxu_5qibuw8gU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:711004115285:android:05e9fce5838aa5e7badfdc",
+        "android_client_info": {
+          "package_name": "com.example.aaya"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCJpwDmj_5kTB8MhtkCv_rxu_5qibuw8gU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:711004115285:android:b3244c31f07466aebadfdc",
+        "android_client_info": {
+          "package_name": "com.example.aayauser"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCJpwDmj_5kTB8MhtkCv_rxu_5qibuw8gU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

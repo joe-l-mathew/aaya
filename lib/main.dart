@@ -1,4 +1,5 @@
 import 'package:aaya/controller/user_controller.dart';
+import 'package:aaya/firebase_options.dart';
 import 'package:aaya/screens/splash/splash_screen.dart';
 import 'package:aaya/services/dio_service.dart';
 import 'package:aaya/theme/theme_controller.dart';
@@ -13,7 +14,9 @@ Dio? dioInstance;
 void main() async {
   dioInstance = createDioWithLoggerInterceptor();
   WidgetsFlutterBinding.ensureInitialized();
-  // await Firebase.initializeApp();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   await Hive.initFlutter();
   await Hive.openBox('tokenBox');
   runApp(
