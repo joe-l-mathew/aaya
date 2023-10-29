@@ -2,7 +2,8 @@ import 'package:aaya/controller/user_controller.dart';
 import 'package:aaya/main.dart';
 import 'package:aaya/models/api_models/user_data.dart';
 import 'package:aaya/repository/routes/api_routes.dart';
-import 'package:aaya/screens/home/home_screen.dart';
+import 'package:aaya/screens/bottom_sheet/bottom_navigation_screen.dart';
+import 'package:aaya/screens/bottom_sheet/screens/home/home_screen.dart';
 import 'package:aaya/screens/onboarding/onboarding_screen.dart';
 import 'package:aaya/services/token_services.dart';
 import 'package:dio/dio.dart';
@@ -56,7 +57,7 @@ class AuthServices {
         Get.offAll(() => const UserOnboardingScreen());
       } else {
         //get to home screen
-        Get.offAll(() => const HomeScreen());
+        Get.offAll(() => const BottomNavigatonScreen());
       }
       return res.statusCode == 200;
     } on Exception {
